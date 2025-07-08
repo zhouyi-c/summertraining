@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy[asyncio]
+asyncmy
+python-multipart
+python-dotenv
+loguru
+greenlet
+passlib[bcrypt]
+python-jose[cryptography]
