@@ -1,10 +1,31 @@
+# Web 框架
 fastapi
+
+# ASGI 服务器
 uvicorn[standard]
+
+# ORM 和数据库驱动
 SQLAlchemy[asyncio]
 asyncmy
+mysqlclient
+
+# 文件上传
 python-multipart
+
+# 环境变量管理
 python-dotenv
+
+# 日志
 loguru
+
+# SQLAlchemy 依赖
 greenlet
+
+# 密码加密
 passlib[bcrypt]
+
+# JWT 认证
 python-jose[cryptography]
+
+# 数据库迁移工具
+alembic

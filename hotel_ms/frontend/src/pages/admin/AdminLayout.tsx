@@ -52,26 +52,27 @@ const AdminLayout = () => {
 
 
   return (
+
     <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
         <div style={{ height: 32, margin: 16, background: 'rgba(255, 255, 255, 0.2)', textAlign: 'center', lineHeight: '32px', color: 'white', borderRadius: 6 }}>
-          尼克城堡
+          尼克的移动城堡
         </div>
         <Menu theme="dark" defaultSelectedKeys={[selectedKey]} mode="inline" items={menuItems} />
       </Sider>
-      <Layout>
-        <Header style={{ padding: '0 16px', background: '#fff' }}>
-            <Breadcrumb>
-                {breadcrumbItems}
-            </Breadcrumb>
-        </Header>
-        <Content style={{ margin: '16px' }}>
-          <div style={{ padding: 24, minHeight: 360, background: '#fff' }}>
-            <Outlet />
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>尼克的移动城堡 ©2025 Created by AI</Footer>
-      </Layout>
+        <Layout>
+            <Header style={{padding: '0 16px', background: '#fff'}}>
+                <Breadcrumb>
+                    {breadcrumbItems}
+                </Breadcrumb>
+            </Header>
+            <Content style={{margin: '16px'}}>
+                <div style={{padding: 24, minHeight: 360, background: '#fff'}}>
+                    <Outlet/>
+                </div>
+            </Content>
+            <Footer style={{textAlign: 'center'}}>尼克的移动城堡 ©2025 Created by love</Footer>
+        </Layout>
     </Layout>
   );
 };

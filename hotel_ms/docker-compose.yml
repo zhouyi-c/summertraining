@@ -1,15 +1,20 @@
-version: "3.9"
+version: "3.7"
 services:
+  # 数据库服务
   db:
     image: mysql:8.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: hotel_ms
+      MYSQL_USER: hotel_user
+      MYSQL_PASSWORD: hotel_pass
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+
+  # 后端服务
   backend:
     build: ./backend
     command: uvicorn hotel_ms.backend.app.main:app --host 0.0.0.0 --port 8000 --reload
@@ -19,6 +24,11 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      - DATABASE_URL=mysql+asyncmy://hotel_user:hotel_pass@db:3306/hotel_ms
+      - PYTHONUNBUFFERED=1
+
+  # 前端服务（开发环境，生产建议用nginx镜像）
   frontend:
     build: ./frontend
     command: npm run dev
@@ -28,5 +38,12 @@ services:
       - "5173:5173"
     depends_on:
       - backend
+
 volumes:
   db_data:
+
+# 说明：
+# - backend 挂载 /code，Dockerfile 也以 /code 为工作目录
+# - 数据库用户名、密码、库名可根据需要修改
+# - DATABASE_URL 环境变量用于后端连接数据库
+# - 开发环境前端端口为 5173，生产部署建议用 nginx 镜像并映射 80 端口

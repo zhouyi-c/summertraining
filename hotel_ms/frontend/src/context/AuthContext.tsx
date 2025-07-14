@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import axios from "axios";
 
 export type Role = "user" | "admin" | null;
 

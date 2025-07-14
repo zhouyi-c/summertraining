@@ -22,8 +22,8 @@ export default function ChatWidget() {
 
   return (
     <>
-      <FloatButton type="primary" style={{ right: 24 }} onClick={() => setOpen(true)} description="AI助理" />
-      <Drawer title="AI 聊天助手" placement="right" width={360} onClose={() => setOpen(false)} open={open}>
+      <FloatButton type="primary" style={{ right: 24 }} onClick={() => setOpen(true)} description="我是尼克" />
+      <Drawer title="我是尼克" placement="right" width={360} onClose={() => setOpen(false)} open={open}>
         <List
           dataSource={messages}
           renderItem={(m) => (
